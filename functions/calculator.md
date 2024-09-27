@@ -1,4 +1,5 @@
 ## Importing example: calculator
+
 ```python
 from math_operations import *
 # ^^ from <module> (a single file), import the functions.
@@ -101,6 +102,101 @@ print("Exponentiation of 2 to the power of 3:", exponentiate(2, 3))  # Output: 8
 * Uses a recursive approach to `evaluate expressions within parentheses`. 
 * Parses the `expression` and evaluates it step by step, handling nested parentheses.
 * An `expression` in Python is a combination of operators and operands. An example of expression can be : `x = x + 1 0 x = x + 10 x=x+10`. 
+
+## Parsing logic
+* Digit Handling: 
+  * If the current character is a digit, it updates `num` by multiplying the current `num` by 10 and adding the integer value of the character. This handles multi-digit numbers. 
+* Plus and Minus Handling: 
+  * If the current character is `+,` it adds the current `num` (considering the `sign`) to `result`, resets `num` to 0, and sets `sign` to 1. 
+  * If the current character is `-`, it does the same but sets sign to `-1`.
+* Parentheses Handling:
+  * If the current character is `(`, it finds the corresponding `)` by tracking the balance of parentheses.
+  * It then recursively calls `parse_expression` on the substring within the parentheses and assigns the result to `num`.
+* Closing Parenthesis Handling:
+  * If the current character is `)`, it adds the current `num` (considering the `sign`) to `result` and returns `result`.
+* End of Expression:
+  * After the loop, it adds any remaining `num` (considering the `sign`) to `result`.
+* Final Return:
+  * The outer function `evaluate_expression` calls `parse_expression` with the input expression and returns the result.
+
+## Example
+For the expression `1 + (2 - 3)`, the function would:
+* Parse `1`, add it to `result`.
+* Encounter `+`, set `sign` to 1.
+* Encounter `(`, recursively parse `2 - 3`, which results in `-1`.
+* Add `-1` to `result`, resulting in `0`.
+
+### End result: calculator
+```python
+# mini calculator.
+def add(x, y):
+    return x + y
+
+# Function to subtract two numbers.
+def subtract(a, b):
+    return a - b
+
+# Function to multiply two numbers.
+def multiply(a, b):
+    return a * b
+
+# Function to divide two numbers.
+def divide(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Error! Division by zero."
+
+# to the power of
+def exponentiate(base, exponent):
+    return base ** exponent
+
+
+def evaluate_expression(expression):                # takes a mathematical expression as a string and evaluates it.
+    def parse_expression(expr):                     # does the parsing and evaluation of the expression.
+        stack = []                                  # stack: used for handling nested expressions.
+        num = 0                                     # stores the current number being processed.
+        sign = 1                                    # stores the current sign (1 = pos, -1 = neg).
+        result = 0                                  # accumulates the result of the expression.
+        i = 0                                       # index: to traverse the expression string.
+
+        while i < len(expr):                        # this loop iterates through each character in the expression (expr).
+            char = expr[i]
+
+            if char.isdigit():                      # digit handling: If the character is a digit, it updates num by shifting the current num left by one decimal place (multiplying by 10) and adding the new digit.
+                num = num * 10 + int(char)
+            elif char == '+':                       # addition handling: If the character is a ‘+’, it adds the current num to result (considering the current sign), resets num to 0, and sets sign to 1 (positive).
+                result += sign * num
+                num = 0
+                sign = 1
+            elif char == '-':                       # subtraction handling: If the character is a ‘-’, it adds the current num to result (considering the current sign), resets num to 0, and sets sign to -1 (negative).
+                result += sign * num
+                num = 0
+                sign = -1
+            elif char == '(':                       # paranthesis handling: If the character is ‘(’, it finds the corresponding closing ‘)’ by maintaining a balance counter. It then recursively evaluates the expression inside the parentheses using parse_expression.
+                j = i
+                balance = 0
+                while i < len(expr):
+                    if expr[i] == '(':
+                        balance += 1
+                    if expr[i] == ')':
+                        balance -= 1
+                    if balance == 0:
+                        break
+                    i += 1
+                num = parse_expression(expr[j + 1:i])
+            elif char == ')':                           # closing paranthesis handling: If the character is ‘)’, it adds the current num to result and returns result.
+                result += sign * num
+                return result
+            i += 1                                      # increment index: Moves to the next character in the expression.
+
+        result += sign * num                            # final addition: After the loop, it adds the last num to result and returns result.
+        return result
+
+    return parse_expression(expression)                 # entry point: This is the entry point of the function, which starts the parsing process.
+```
+
+
 
 ### Constant Expressions
 * Expressions that have constant values only.
