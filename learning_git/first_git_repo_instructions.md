@@ -12,6 +12,37 @@ This is my first repository.
 >8. cd tech264_python
 >9. (master)`
 
+### Push an existing repository from the command line
+1. Locate folder.
+2. `git log`
+3. `git branch -M main`
+4. `git branch`
+5. `git remote add origin <https://>`
+6. `git push -u origin main`
+
+GitHub:
+
+Name of the repo has to be the same on GitHub (local and remote versions).
+If you don't have anything existing yet, you can do a git clone. If you do git clone, you get ALL of the history.
+
+## Examples from first repo on GitHub (tech264-test-git):
+_Make sure your using 'https' when copying the link below._ 
+Sometimes there are other options.
+
+### Create a new repository on the command line
+* echo "# tech264-test-git" >> README.md
+* `git init`
+* `git add` README.md
+* `git commit -m "`first commit"
+* `git branch -M main` (this renames the branch you're on).
+* `git remote add origin` https://github.com/GP-Stanley/tech264-test-git.git
+* `git push -u origin main`
+
+### Push an existing repository from the command line
+* `git remote add origin` https://github.com/GP-Stanley/tech264-test-git.git: is used to add a remote repository to your local Git repository.
+* `git branch -M main`: is used to rename the current branch to 'main'. 
+* `git push -u origin main`: is used to push your local 'main' branch to the remote repository and set it as the upstream branch. 
+
 ## Changes in PyCharm
 * Red: Not tracked.
 * Green: Staged.
@@ -26,8 +57,18 @@ Here are some fundamental Git Bash commands to get you started:
 ### Navigating Directories:
 * **`cd ..`**: Getting to the parent directory.
 * **`ls`**: Lists files and directories in the current directory.
-* **`cd`** <directory>: Changes the current directory to the specified directory.
+* **`cd <directory>`**: Changes the current directory to the specified directory.
 * **`pwd`**: Prints the current working directory.
+* **`~`**: Home directory: tells you the path you are on.
+* If a folder has spaces: you NEED to put it in single quotes ' '.
+* **`q`**: exit the pager and return to the command prompt.
+* **`Ctrl+c`**: go back a step. terminate a running command or exit a loop or script.
+* **`Ctrl+Z`**: suspends the current foreground process. (e.g.) If you are running a long process and need to pause it temporarily, you can press `Ctrl+Z` to suspend it. Later, you can resume it with the `fg` command.
+* **`fg`**: resumes a job that was previously suspended (using `Ctrl+Z`) or running in the background (using `bg`), and brings it to the foreground.
+* **`bg`**: resumes a job that was previously suspended (using `Ctrl+Z`) and runs it in the background.
+* `git remote add origin <github account>`: is used to add a remote repository to your local Git repository.
+* `git branch -M main `: is used to rename the current branch to 'main'.
+* `git push -u origin main`: is used to push your local 'main' branch to the remote repository and set it as the upstream branch. 
 
 ### Managing Files and Directories:
 * **`touch`** <file>: Creates a new file.

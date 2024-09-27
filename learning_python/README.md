@@ -20,3 +20,12 @@ Why are we doing Python?
 * else, elif statements
 
 ^^ LEARN THESE WITHOUT LOOKING IT UP BC IT'S ON THE ASSESSMENT.
+
+LEARN:
+* variables.
+* loops (for and while).
+* dictionaries, lists, sets, frozen sets.
+* functions.
+* strings // slicing strings.
+
+
