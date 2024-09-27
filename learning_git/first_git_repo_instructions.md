@@ -31,9 +31,9 @@ Sometimes there are other options.
 
 ### Create a new repository on the command line
 * echo "# tech264-test-git" >> README.md
-* `git init`
+* `git init`: on your local machine. 
 * `git add` README.md
-* `git commit -m "`first commit"
+* `git commit -m "`"first commit": need at least one.
 * `git branch -M main` (this renames the branch you're on).
 * `git remote add origin` https://github.com/GP-Stanley/tech264-test-git.git
 * `git push -u origin main`
@@ -81,7 +81,7 @@ Here are some fundamental Git Bash commands to get you started:
 * **`git clone`** <repository>: Clones an existing repository.
 * **`git status`**: Displays the status of your working directory and staging area.
 * **`git add`** <file>: Adds a file to the staging area. 
-* **`git commit -m "message"`**: Commits the changes in the staging area with a message.
+* **`git commit -m "message"`**: Commits the changes in the staging area with a message. Saving the state of where those files are at that point: a snapshot. You can then go back to that version later on if you need to. 
 * **`git push`**: Pushes changes to a remote repository.
 * **`git pull`**: Pulls changes from a remote repository.
 * **`git log`**: “git log” command will help you to see the logs of all the commits made. 

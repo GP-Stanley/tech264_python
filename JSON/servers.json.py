@@ -1,7 +1,4 @@
 
-
-
-
 {
     "server1": {
         "hostname": "web-server-1",

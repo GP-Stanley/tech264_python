@@ -147,3 +147,22 @@ print("-------------------------------------------------------------------------
 * Implement more complex operations, such as handling parentheses, exponentiation 
 * More advanced operations should continue to be broken into separate functions 
 """
+
+def calculator():
+    operation = input("Choose an operator (+, -. *, /): ")
+    num1 = float(input("Enter a numer: "))
+    num2 = float(input("Enter a number: "))
+
+    if operation == "+":
+        print(add(num1, num2))
+
+    elif operation == "-":
+        print(subtract(num1, num2))
+
+    elif operation == "*":
+        print(multiply(num1, num2))
+
+    elif operation == "/":
+        print(divide(num1, num2))
+    else:
+        print("Error.")

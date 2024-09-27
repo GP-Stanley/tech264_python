@@ -4,15 +4,15 @@
 * Python has a built-in package called json, which can be used to work with JSON data.
 * A popular, open standard file format for storing and exchanging data.
 
-
 ## What does it stand for?
 * JavaScript Object Notation. 
 
 ## What is it used for?
-*  for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
+* For transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
+* It’s used to represent data structures and objects.
 
 ## What is it written in?
-* The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text only. 
+* The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is `text only`. 
 * Code for reading and generating JSON data can be written in any programming language.
 
 ## Include a simple example of JSON
@@ -21,17 +21,18 @@
 { "first_name" : "Sammy", "last_name" : "Shark", "location" : "Ocean", "online" : true, "followers" : 987 } 
 ```
 ## Advantages of using it?
-* Flexibility: can support a wide range of data types.
-* Easability: easy to use and understand, doesn't require additional code to interpret data.
-* Support: JSON is supported by most programming languages, operating systems and browsers.
-* Self-describing: easy to distinguish between data types and interpret data without prior knowledge.
+* **Flexibility**: can support a wide range of data types.
+* **Easy**: easy to use and understand, doesn't require additional code to interpret data. 
+  * Easy for machines to understand it and regenerate it into other formats. 
+* **Support**: JSON is supported by most programming languages, operating systems and browsers.
+* **Self-describing**: easy to distinguish between data types and interpret data without prior knowledge.
 
 ## What data types can it store/use?
 * string : number : JSON object : array : boolean : null.
-* It CAN'T store a function : a date : undefined. 
+* It CAN'T store: a function : a date : undefined. 
 
 ## What is the JSON syntax for:
-* used to structure data in a text-based format that is both human-readable and machine-parsable.
+* Used to structure data in a text-based format that is both human-readable and machine-parsable.
 
 ### Name value pairs?
 * In JSON, data is written as name/value pairs. 
@@ -50,8 +51,8 @@
 }
 ```
 
-### How to separate data (key/value pairs) from one another?
-* name/value pairs are separated by commas. 
+### How to separate data (key/value pairs) from one another
+* Key/value pairs are separated by commas. 
 ```python
 {
   "name": "John",
@@ -60,7 +61,7 @@
 }
 ```
 
-### JSON arrays (these are like lists in python)?
+### JSON arrays (these are like lists in python)
 * JSON arrays are ordered collections of values enclosed in square brackets []. 
 * These values can be strings, numbers, objects, arrays, booleans, or null. 
 

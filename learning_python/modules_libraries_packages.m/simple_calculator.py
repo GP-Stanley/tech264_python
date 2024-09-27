@@ -17,9 +17,19 @@ from math_operations import*
                                         # This part assigns the alias mo to the math_operations module.
                                         # With this name, you can call functions using the shorter name, like mo.add(5, 3).
 
-# Testing the functions from math_operations module
 
-# test_my_module.py
-def test_add():
-    return add(1, 2) == 3
-    print(test_add())
+
+
+
+# Main program to perform operations based on user input.
+def main():
+    first_num = int(input("Enter the first number: "))
+    second_num = int(input("Enter the second number: "))
+
+    print(f"{first_num} + {second_num} = {add(first_num, second_num)}")
+    print(f"{first_num} - {second_num} = {subtract(first_num, second_num)}")
+    print(f"{first_num} * {second_num} = {multiply(first_num, second_num)}")
+    print(f"{first_num} / {second_num} = {divide(first_num, second_num)}")
+
+if __name__ == "__main__":                # ensures that the main() function runs when the script is executed directly.
+    main()

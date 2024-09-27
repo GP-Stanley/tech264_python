@@ -27,6 +27,20 @@ print("Division of 5 by 3:", mo.divide(5, 3))       # Output: 1.6666666666666667
 print("Exponentiation of 2 to the power of 3:", mo.exponentiate(2, 3))  # Output: 8
 print("Evaluation of expression '2 + (3 - 1) * 5':", mo.evaluate_expression("2+(3-1)*5"))  # Output: 12
 ```
+## Another way for user experience
+```python
+def main():
+    first_num = int(input("Enter the first number: "))
+    second_num = int(input("Enter the second number: "))
+
+    print(f"{first_num} + {second_num} = {add(first_num, second_num)}")
+    print(f"{first_num} - {second_num} = {subtract(first_num, second_num)}")
+    print(f"{first_num} * {second_num} = {multiply(first_num, second_num)}")
+    print(f"{first_num} / {second_num} = {divide(first_num, second_num)}")
+
+if __name__ == "__main__":                # ensures that the main() function runs when the script is executed directly.
+    main()
+```
 
 
 
@@ -146,6 +160,13 @@ def divide(a, b):
         return a / b
     else:
         return "Error! Division by zero."
+    
+# ANOTHER WAY: to tell the user that numerators can't be zero.
+def divide(numerator, denominator):
+    if denominator != 0:
+        return numerator / denominator
+    else:
+        return "Error! Division by zero."
 
 # to the power of
 def exponentiate(base, exponent):
@@ -173,7 +194,7 @@ def evaluate_expression(expression):                # takes a mathematical expre
                 result += sign * num
                 num = 0
                 sign = -1
-            elif char == '(':                       # paranthesis handling: If the character is ‘(’, it finds the corresponding closing ‘)’ by maintaining a balance counter. It then recursively evaluates the expression inside the parentheses using parse_expression.
+            elif char == '(':                       # parenthesis handling: If the character is ‘(’, it finds the corresponding closing ‘)’ by maintaining a balance counter. It then recursively evaluates the expression inside the parentheses using parse_expression.
                 j = i
                 balance = 0
                 while i < len(expr):
@@ -185,7 +206,7 @@ def evaluate_expression(expression):                # takes a mathematical expre
                         break
                     i += 1
                 num = parse_expression(expr[j + 1:i])
-            elif char == ')':                           # closing paranthesis handling: If the character is ‘)’, it adds the current num to result and returns result.
+            elif char == ')':                           # closing parenthesis handling: If the character is ‘)’, it adds the current num to result and returns result.
                 result += sign * num
                 return result
             i += 1                                      # increment index: Moves to the next character in the expression.

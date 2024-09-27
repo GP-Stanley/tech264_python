@@ -1,3 +1,8 @@
+## What is a function?
+A function is a block of organised, reusable code that performs a specific task. 
+* Functions help make your code more modular and easier to manage.
+* You can call it or use that function whenever you need to in that code. 
+
 ## Make Functions
 ### 1. Make a function with no argument
 * Name it 'print_something' and all it should do it print something to the screen
@@ -25,13 +30,14 @@ print_something("Hello, World!")       # call the function. # these are the argu
 * Here is the code to call the function:
   * greet("Susan")
 * You need to write the function
-* Make sure the print statement in your function uses concatentation (ie. +) rather than an f-string 
+* Make sure the print statement in your function uses concatenation (ie. +) rather than an f-string 
 * Output should be:
   * Hello, my name is Susan.
 
 ```python
 def greet(name):                            # name the argument in ().
     print("Hello, I am " + name + ".")
+    
 greet("Susan")                              # call the function. 
                                             # Output: Hello, I am Susan.
 ```
@@ -41,7 +47,7 @@ greet("Susan")                              # call the function.
 def addition(int1, int2):
     return int1 + int2                  # add 'return' to show the result of the addition.
 
-print(addition(2, 2))                   # Output: 4
+print(addition(2, 2))                   # given the parameters a value.      # Output: 4
 ```
 ANOTHER WAY ??:
 ```python
@@ -81,7 +87,7 @@ def addition(int1=2, int2=2):           # modify function (2).
 
                                         # Call the function
 print(addition())                       # This should print 4
-print(addition(4, 4))                   # This should print 8
+print(addition(4, 4))                   # This should print 8.      # if you write something here, it overwrites the default parameters up top. 
 ```
 Explain why the answer is now 8:
 * When no arguments are provided, the default values (2 and 2) are used, resulting in 4. 
@@ -99,8 +105,8 @@ ________________________________________________________________________________
 * After calling the function, the output should be:
 ```python
 def print_every_number(*args):      # you can pass as many numbers as you want (args), these are captured in a tuple.
-    print(type(args))   
-    for num in args:
+    print(type(args))               # print data type.
+    for num in args:                # loop through the tuple. 'n' represents each item in the tuple.
         print(num)
 
 print_every_number(1, 2, 2, 3, 3, 4, 5, 5)
@@ -139,7 +145,7 @@ greeting(24601)
 def greet(name: str):
     print("Hello, I am " + name + ".")
 
-greet("24601")                          
+greet("24601")                               # this is in a string (because of the hint in the first line).  
 
 # Output: Hello, I am 24601.
 ```
@@ -163,19 +169,20 @@ print(division(a, b))
 ```
 Also check the default values work if no values are passed into the function
 ```python
-def division(a : int = 2, b: int =5)-> float:
+def divide(a : int = 2, b: int =5)-> float:           # if you call this function without a and b, the default is used. 
     return a/b
 
-a: int = 4
-b: int = 6
+a: int = 4                                  # defined the type as an 'int'.
+b: int = 6                                  # a and b both overwrite the set parameters above.
 
-print(division(a, b))
-print(division())
+print(divide(a, b))                       # 0.6666666666666666
+print(divide())                           # 0.4           # Ctrl+space: can provide you with all the options within the space in the brackets. 
 ```
 ### 9. What are some good practices when it comes to functions?
 * Choose your function name wisely! Try and have it describe what it does.
 * `#Comments` and `"""docstrings"""` to describe what your functions do and how they should be used.
 * Keep your functions small and simple. Ideally focused on a single task.
+* Try and name them using verbs - division : divide.
 
 
 
