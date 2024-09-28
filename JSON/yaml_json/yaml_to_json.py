@@ -1,4 +1,5 @@
 # create a script to convert a YAML file to a JSON file.  (using json library)
+# YAML to JSON Conversion: We read a YAML file, convert its contents to a dictionary, and then write that dictionary to a JSON file using json.dump().
 
 import yaml
 import json
@@ -14,4 +15,4 @@ def yaml_to_json(yaml_file, json_file):         # This function converts a YAML 
 yaml_file_path = "example.yaml"
 json_file_path = "example.json"
 yaml_to_json(yaml_file_path, json_file_path)
-print(f"Converted {yaml_file_path} to {json_file_path}")
+print(f"Converted {yaml_file_path} to {json_file_path}")        # Output: Converted example.yaml to example.json

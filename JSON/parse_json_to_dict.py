@@ -1,7 +1,7 @@
 import json                                                     # imports the json module, which allows us to work with JSON data in Python.
 
 # Open and read the JSON file
-with open('json_yaml/servers.json', 'r') as json_file:                    # with open('servers.json', 'r') as json_file: This opens a file named servers.json in read mode ('r'). The with statement ensures the file is properly closed after its suite finishes.
+with open('json_yaml/servers.json', 'r') as json_file:          # with open('servers.json', 'r') as json_file: This opens a file named servers.json in read mode ('r'). The with statement ensures the file is properly closed after its suite finishes.
     servers = json.load(json_file)                              # servers = json.load(json_file): This reads the JSON data from the file and converts it into a Python dictionary, storing it in the variable servers.
 
 # Print the type of "servers"
