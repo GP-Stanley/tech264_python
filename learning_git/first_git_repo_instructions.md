@@ -12,6 +12,19 @@ This is my first repository.
 >8. cd tech264_python
 >9. (master)`
 
+### How to get Git to ignore a file/folder
+* folders that start with a dot (.) is a hidden file/folder. 
+* .gitignore files
+
+## What wouldn't you like to show?
+* Credentials or personal files (sensitive information).
+* Large files or folders that don't need to be pushed. 
+* Certain directories where folders (/bin, /out, etc).
+* Hidden system files. 
+
+## Solution
+* .gitignore files
+
 ### Push an existing repository from the command line
 1. Locate folder.
 2. `git log`
@@ -69,6 +82,9 @@ Here are some fundamental Git Bash commands to get you started:
 * `git remote add origin <github account>`: is used to add a remote repository to your local Git repository.
 * `git branch -M main `: is used to rename the current branch to 'main'.
 * `git push -u origin main`: is used to push your local 'main' branch to the remote repository and set it as the upstream branch. 
+* `git rm--cached -r`: removes everything in the file you specified after '-r'. 
+* `git rn`: Used to remove files from the working directory and the index (staging area).
+* `git reset`: Used to undo changes in your working directory or staging area by resetting your current branch to a specific state.
 
 ### Managing Files and Directories:
 * **`touch`** <file>: Creates a new file.

@@ -19,8 +19,9 @@
 ![what_is_an_api](../../images/img_4.png)
 
 ## What is a REST API? 
-REST API: Representational State Transfer API.
-* It's a type of API that adheres to the principles of REST, an architectural style for designing networked applications.
+REST API: `Representational State Transfer API`.
+* It's a type of API that `adheres to the principles of REST`, an architectural `style for designing networked applications`.
+* Use HTTP/HTTPS as its language. It's the language used to communicate with websites.
 
 ## What makes an API RESTful? What are the REST guidelines?
 RESTful Characteristics:
@@ -34,20 +35,24 @@ RESTful Characteristics:
 `HTTP`: HyperText Transfer Protocol.
 * is the foundation of data communication on the web. 
 * It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands.
+
 `HTTPS`: HyperText Transfer Protocol Secure.
 * is the secure version of HTTP. 
 * It uses encryption (via SSL/TLS) to secure data transfer between the client and server, ensuring data integrity and privacy.
 
 ## Explain HTTP request structure using the diagrams provided, or your own.
 A HTTP request typically consists of three main parts: the `request line`, `headers`, and `message body`:
-* `Request Line`: Contains the HTTP method (e.g., GET, POST), the URL, and the HTTP version. 
+* `Request Line`: Contains the HTTP method (verb) (e.g., GET, POST), the URL (end point), and the HTTP version (being used). 
   * The HTTP method specifies the action to be taken on the resource.
 * `Headers`: Provide additional information about the request (e.g., content type, user agent).  
   * Headers are case-sensitive and are followed by a colon (':') and a value.
 * `Message Body`: Contains the data to be sent to the server (used in POST, PUT, PATCH requests). 
   * The message body is often used when creating or updating a resource on the server. 
 
+  
+![img.png](img.png)
 ![http_request_structure](../../images/img.png) 
+
 
 #### Additional things about HTTP requests:
 A HTTP request typically consists of:
@@ -59,19 +64,28 @@ A HTTP request typically consists of:
 
 ## Explain HTTP response structure using the diagram provided, or your own.
 An HTTP response typically consists of:
-* `Status Line`: Contains the HTTP version, status code (e.g., 200 OK), and status message. 
-* `Headers`: Provide additional information about the response (e.g., content type, content length). 
-* `Body`: Contains the data returned by the server.
+* `Status Line`: Contains the HTTP version (being used), status code (response code) (e.g., 200 OK), and status message. 
+* `Headers`: Provide additional information about the response in key:value pairs (e.g., content type, content length). 
+* `Body`: Contains the data returned by the server: text, JSON, XML.
 
 ![http_response_structure](../../images/img_1.png)
 
 
-## What are the 5 HTTP verbs and what do they do?
-* `GET` → Retrieves data from the server.
-* `POST` → Sends data to the server to create a new resource.
-* `PUT` → Updates an existing resource with new data.
-* `PATCH` → Partially updates an existing recourse.
-* `DELETE` → Deletes an existing resource.
+## What are the 5 HTTP verbs/methods and what do they do?
+* `GET` → Retrieves data from the server. (read request)
+  * Example: A client requests a list of users from a server: URL: `GET /users`
+  
+* `POST` → Sends data to the server to create a new resource. (create)
+  * Example: A client submits a new user to be added to the server: URL: `/users: Data`: `{ "name": "John", "email": "john@example.com" }`
+  
+* `PUT` → Updates an existing resource with new data. (give the complete info for new record/ replacement of record)
+  * Example: A client updates the information of an existing user. URL: `PUT /users/1 : Data`: `{ "name": "John Doe", "email": "john.doe@example.com" }` Function: Replaces the entire user record with new data.
+
+* `PATCH` → Partially updates an existing recourse. (modify particular information in record)
+  * Example: A client updates only the email of an existing user. URL: `PATCH /users/1`Data: `{ "email": "john.newemail@example.com" }` Function: Partially updates the user’s email without modifying other data.
+
+* `DELETE` → Deletes an existing resource. (delete data)
+  * Example: A client deletes a user from the server. URL: `DELETE /users/1` Function: Removes the user with ID 1 from the server.
 
 ## What is statelessness? Show examples of “stateless” and stateful http requests.
 `Statelessness`: each request from a client to server must contain all the information needed to understand and process the request. The server does not store any state about the client session.
