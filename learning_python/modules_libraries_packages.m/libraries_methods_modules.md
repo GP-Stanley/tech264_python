@@ -8,11 +8,14 @@ first_num = int(input("Enter the first number: "))
 second_num = int(input("Enter the first number: "))
 result = add(first_num, second_num)print(f"{first_num} + {second_num} = {result}")
 
+-----------------------------------------------------------------
 
 import this
 # Python enhancement proposal
 # PEP 20
 # These principles can make you better at code.
+
+-----------------------------------------------------------------
 
 import random
 
@@ -22,7 +25,7 @@ print(random.randrange()) # get a numbe rbetween 0 & 1
 
 import random
 
-print(random.randrange(1, 10)) # get a numbe rbetween 1 & 10
+print(random.randrange(1, 10)) # get a number between 1 & 10
 
 ----------------------------------------------------------------
 
