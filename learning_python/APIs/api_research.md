@@ -16,7 +16,7 @@
 2. `Server`: Processes the request.
 3. `Server`: Sends a response back to the client.
 
-![what_is_an_api](images/img_4.png)
+![what_is_an_api](../../images/img_4.png)
 
 ## What is a REST API? 
 REST API: Representational State Transfer API.
@@ -47,7 +47,7 @@ A HTTP request typically consists of three main parts: the `request line`, `head
 * `Message Body`: Contains the data to be sent to the server (used in POST, PUT, PATCH requests). 
   * The message body is often used when creating or updating a resource on the server. 
 
-![http_request_structure](images/img.png) 
+![http_request_structure](../../images/img.png) 
 
 #### Additional things about HTTP requests:
 A HTTP request typically consists of:
@@ -63,7 +63,7 @@ An HTTP response typically consists of:
 * `Headers`: Provide additional information about the response (e.g., content type, content length). 
 * `Body`: Contains the data returned by the server.
 
-![http_response_structure](images/img_1.png)
+![http_response_structure](../../images/img_1.png)
 
 
 ## What are the 5 HTTP verbs and what do they do?
@@ -97,8 +97,8 @@ An HTTP response typically consists of:
 4. The server uses the session ID to remember the client's state and provide the appropriate response.
 
 
-![img_3.png](images/img_3.png)
-![img_2.png](images/img_2.png)
+![img_3.png](../../images/img_3.png)
+![img_2.png](../../images/img_2.png)
 
 ## What is caching?
 `Caching` is the process of `storing copies of files or data in a cache`, or temporary storage location, 
@@ -106,3 +106,5 @@ so that they can be `accessed more quickly`.
 * In the context of web APIs, caching can `reduce the load on the server` and `decrease the time it takes to retrieve data`.
 
 > Around close of COB, post a link in the main chat to the specific section of your repo where this tasks is.
+
+

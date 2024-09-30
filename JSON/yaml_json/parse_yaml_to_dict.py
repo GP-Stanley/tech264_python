@@ -2,7 +2,7 @@
 # Parsing yaml to Dictionary: We read a yaml file and convert its contents into a Python dictionary using yaml.safe_load().
 
 import yaml
-from pprint import pprint
+from pprint import pprint           # “pretty-print” and is used to print data structures in a more readable and formatted way. This is especially useful for complex nested data structures like dictionaries and lists.
 
 
 with open('example.yaml', "r") as yaml_file:          # with open statement loads a file in python: Load the yaml file.

@@ -6,3 +6,4 @@ with open('json_yaml/servers.json', 'r') as json_file:
 
 print({type(servers)})              # Output: {<class 'dict'>}
 print(servers)
+

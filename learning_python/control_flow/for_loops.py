@@ -11,15 +11,20 @@ for num in list_data:
     for data in embedded_lists:
         print(data)
 
+print("---------------------------------------------")
 
 for data in embedded_lists:
     print(data)
     for item in data:
         print(item)
 
+print("---------------------------------------------")
+
 
 for key in dict_data:
     print(key)
+
+print("---------------------------------------------")
 
 
 for value in dict_data.values():
@@ -29,10 +34,14 @@ for value in dict_data.values():
 # {'name': 'Masha', 'money': '$3.66'}
 # {'name': 'Roscoe', 'money': '$1.14'}
 
+print("---------------------------------------------")
+
 
 for value in dict_data.values():
     for inner_value in value.values():
         print(inner_value)
+
+print("---------------------------------------------")
 
 
 for value in dict_data.values():
@@ -40,6 +49,7 @@ for value in dict_data.values():
     for inner_value in value.values():
         print(inner_value)
 
+print("---------------------------------------------")
 
 for value in dict_data.values():
     print(value["money"])

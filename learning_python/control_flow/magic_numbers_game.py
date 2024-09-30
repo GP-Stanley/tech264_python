@@ -24,7 +24,7 @@ while attempts > 0:
             break
         attempts -= 1
     else:
-        print("Make sure you're only inputting numbers. Don't worry, that go doesn't count. ")
+        print("Make sure you're only inputting numbers. Don't worry, that go doesn't count.")
 
     print(f"You have {attempts} attempts left.")
 
