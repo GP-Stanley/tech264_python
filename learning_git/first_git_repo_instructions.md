@@ -14,16 +14,74 @@ This is my first repository.
 
 ### How to get Git to ignore a file/folder
 * folders that start with a dot (.) is a hidden file/folder. 
-* .gitignore files
+* (e.g) .gitignore files
 
 ## What wouldn't you like to show?
+* `.gitignore` file: allows anything in the folder to be ignored during a git commit and push
 * Credentials or personal files (sensitive information).
 * Large files or folders that don't need to be pushed. 
 * Certain directories where folders (/bin, /out, etc).
-* Hidden system files. 
+* Hidden system files (files starting with '.').
 
-## Solution
-* .gitignore files
+## Solution: .gitignore files
+
+## Danger: If the sensitive file is still accessible in a previous commit
+### SOLUTION:
+* Option 1: Remove previous commits with that file (e.g. use 'git reset' DANGEROUS - YOU COULD LOSE WORK)
+* Option 2: 
+  1. Remove GitHub repo (Now safe!)
+  2. Remove sensitive from your local file
+  3. Remove .git folder from your local repo
+ 
+
+### Adding `.idea` (PyCharm settings) to `.gitignore`
+1. **Open the `.gitignore` file**:
+   - Locate the `.gitignore` file in the root of your project directory. If it doesn't exist, create one by right-clicking on the root folder, selecting **New > File**, and naming it `.gitignore`.
+
+2. **Add the `.idea` folder to `.gitignore`**:
+   - Open the `.gitignore` file and add the following line:
+     ```
+     .idea/
+     ```
+   - Save the `.gitignore` file. This will prevent Git from tracking any changes to the `.idea` folder in the future.
+
+3. **Remove `.idea` from Git tracking (if already tracked)**:
+   - If the `.idea` folder is already in the repository, you'll need to remove it from Git's index (but keep it locally).
+   - Run the following command in the terminal:
+     ```bash
+     git rm -r --cached .idea
+     ```
+   - This removes the `.idea` folder from Git's tracking, but the folder will remain on your local machine.
+
+4. **Commit the changes**:
+   - After adding `.idea/` to `.gitignore` and running the `git rm` command, commit the changes:
+     ```bash
+     git commit -m "Added .idea to .gitignore and removed it from tracking"
+     ```
+
+5. **Conclusion**:
+   - Now, the `.idea` folder will no longer be tracked by Git.
+
+---
+
+### Additional Notes
+
+- **When files are moved to `.gitignore`**:
+  - They are still seen in the commit history.
+  - Run the command `git rm --cached -r .idea` to remove everything in the `.idea` folder from Git's index, and then perform a git commit and push.
+
+- **Security Note**:
+  - Even if a file is added to `.gitignore`, if the repository is public, people can still access previous commits with that file. If personal credentials are pushed to a public GitHub repo, **there may be fines** for exposing sensitive data.
+
+
+
+### Push one file from the command line
+1. cd path/to/your/project 
+2. git init  (If it's a new project).
+3. `git remote add origin` https://github.com/your-username/your-repo.git  (Link to GitHub repo).
+4. `git add` myfile.txt (Add the specific file). 
+5. `git commit -m` "Add myfile.txt"
+6. `git push -u origin main`  (First push). 
 
 ### Push an existing repository from the command line
 1. Locate folder.
@@ -57,10 +115,11 @@ Sometimes there are other options.
 * `git push -u origin main`: is used to push your local 'main' branch to the remote repository and set it as the upstream branch. 
 
 ## Changes in PyCharm
-* Red: Not tracked.
-* Green: Staged.
-* White: Commited and no changes.
-* Blue: Commited and in modified status.
+* `Red`: Not tracked.
+* `Green`: Staged.
+* `White`: Commited and no changes.
+* `Blue`: Commited and in modified status.
+* `Orange`: signifies that the file is unversioned, meaning it exists in your project but has not been tracked by the version control system. (e.g., not tracked by Git)
 
 Learn Git Branching: https://learngitbranching.js.org/
 

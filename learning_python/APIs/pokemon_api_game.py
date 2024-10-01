@@ -12,10 +12,10 @@
 
 import requests     # Allows the program to make HTTP requests to access the Pokémon API.
 import json         # Used to handle JSON data, which is the format the API returns.
-from random import choice, randint      # These functions from the random module are used to pick random moves and Pokémon. choice picks a random item from a list, and randint generates a random integer within a range.
+from random import choice, randint      # Pick random moves and Pokémon. choice picks a random item from a list, and randint generates a random integer within a range (attack stats).
 from time import sleep      # Pauses the program for a short period to make the game feel more natural.
 
-# Constants (in capitals)
+# Constants (in capitals to differentiate)
 LIFE = 100  # a constant that sets the initial health points (HP) for each Pokémon in the battle.
 
 # Get the list of Pokémon from the API
