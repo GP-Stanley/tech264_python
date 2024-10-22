@@ -1,21 +1,195 @@
-# Task:
-# API documentation: PokéAPI (pokeapi.co)
-# Recommended: Understand the Pokemon lookup program first (code below) to fully understand accessing data from the API.
-# The Pokémon data MUST come from the PokeApi
-# Get random Pokémon for at least the CPU (Player can be chosen or random)
-# Pokémon should fight and a winner should be declared in some way
-# No Pygame. Focus on interacting with the API.
-# Be as creative as you like after this. Can you incorporate different abilities/stats etc.?
-# Try and work collaboratively on the one repo using Git
-# To deliver: Give it your best shot! Share your code (message your Ramon + Luke directly, NOT a message in the main chat) by COB (17:00)
+# Build a CLI Pokémon Game using the Pokémon API
+
+## Task:
+* API documentation: PokéAPI (pokeapi.co)
+* Recommended: Understand the Pokemon lookup program first (code below) to fully understand accessing data from the API. 
+* The Pokémon data MUST come from the PokeApi 
+* Get random Pokémon for at least the CPU (Player can be chosen or random)
+* Pokémon should fight and a winner should be declared in some way 
+* No Pygame. Focus on interacting with the API. 
+* Be as creative as you like after this. Can you incorporate different abilities/stats etc.? 
+* Try and work collaboratively on the one repo using Git
+
+```python
+# STARTING CODE:
+
+import requests
+import json
+
+# Get the list of pokemon from the API
+url = 'https://pokeapi.co/api/v2/pokemon/'
+response = requests.get(url)
+pokemon_list = json.loads(response.text)['results']
+
+# print(response.text) : Output: you'll have the full json information.
+
+for pokemon in pokemon_list:
+    print(pokemon['name'])
+
+# Ask the user to choose a pokemon
+print('Enter your pokemon:')
+
+# Get the user's choice
+choice = input().lower()
+
+# Get the pokemon's data from the API
+url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(choice)
+response = requests.get(url)
+pokemon_data = json.loads(response.text)
+
+# to get ability
+abilities = pokemon_data['abilities'][0]
+ability = abilities['ability']
+
+# to format height and weight properly
+height = int(pokemon_data['height'])
+weight = int(pokemon_data['weight'])
+
+height_formatted = height / 10
+weight_formatted = weight / 10
+
+# Print the pokemon's data
+print('Name: {}'.format(pokemon_data['name']))
+print('Weight: {}'.format(weight_formatted) + "(kgs)")
+print('Height: {}'.format(height_formatted) + "(m)")
+print('Ability: {}'.format(ability['name']))
+```
+
+## FIRST EDITS
+```python
+from random import choice
+import requests
+import json
 
 
-import requests     # Allows the program to make HTTP requests to access the Pokémon API.
+# Get the list of pokemon from the API
+url = 'https://pokeapi.co/api/v2/pokemon/'              # requests API point.
+response = requests.get(url)
+pokemon_list = json.loads(response.text)['results']     # load the text as json. # access the 'results'
+
+# print(response.text) : Output: you'll have the full json information.
+
+for pokemon in pokemon_list:            # for each pokemon in the list, we print the name.
+    pokemon_id = pokemon['url'].split('/')[-2]          # ('/') splits the string where it finds this character. [-2] to get the last item, we couldn't use -1 because the character was empty in the url.
+#    print(pokemon_id, pokemon)
+    print(f"{pokemon_id}. {pokemon['name']}")
+
+# Ask the user to choose a pokemon
+print('Enter your pokemon:')
+
+# Get the user's choice
+choice = input().lower()
+
+# Get the pokemon's data from the API
+url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(choice)            # {} has the number of the pokemon and their respective information.
+response = requests.get(url)
+pokemon_data = json.loads(response.text)
+
+# print(pokemon_data['moves'])            # printing the moves in the terminal to analyse.
+
+# to get ability
+abilities = pokemon_data['abilities'][0]
+ability = abilities['ability']
+
+
+
+# to format height and weight properly
+height = int(pokemon_data['height'])
+weight = int(pokemon_data['weight'])
+
+height_formatted = height / 10
+weight_formatted = weight / 10
+
+# Print the pokemon's data
+print('Name: {}'.format(pokemon_data['name']))
+print('Weight: {}'.format(weight_formatted) + "(kgs)")
+print('Height: {}'.format(height_formatted) + "(m)")
+print('Ability: {}'.format(ability['name']))
+
+import requests
+import json
+from random import choice, randint
+
+LIFE = 100
+
+# Get the list of pokemon from the API
+url = 'https://pokeapi.co/api/v2/pokemon/'
+response = requests.get(url)
+pokemon_list = json.loads(response.text)['results']
+
+for pokemon in pokemon_list:
+    pokemon_id = pokemon['url'].split('/')[-2]
+    print(f"{pokemon_id}. {pokemon['name']}")
+
+# Ask the user to choose a pokemon
+# Get the user's choice
+user_choice = input('Enter your pokemon: ').lower()
+
+
+# Get the pokemon's data from the API
+def init_pokemon(pokemon_id: str) -> dict:
+    pokemon = {'life:[LIFE]'}
+
+    url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_id)
+    response = requests.get(url)
+    pokemon_data = json.loads(response.text)
+
+    # ID
+    pokemon['id'] = pokemon_data['id']
+
+    # Name
+    pokemon['name'] = pokemon_data['name']
+
+    # To format height and weight properly
+    height = int(pokemon_data['height'])
+    weight = int(pokemon_data['weight'])
+
+    height_formatted = height / 10
+    weight_formatted = weight / 10
+
+    pokemon['height'] = height_formatted
+    pokemon['weight'] = weight_formatted
+
+    # Select 4 random unique attacks
+    attacks = []
+    while len(attacks) < 4:
+        if not chosen_att['move']['url'] in [att['url'] for att in attacks]:
+            attacks.append({
+                'name': chosen_att['move']['name'],
+                'url': chosen_att['move']['url'],
+                'power': randint(15, 20),
+                'used': False
+            })
+
+    print(attacks)
+
+    pokemon['attacks'] = attacks
+
+    # # To get ability (uncomment if needed)
+    # abilities = pokemon_data['abilities'][0]
+    # ability = abilities['ability']
+
+    return pokemon
+
+# Initialize the user's chosen pokemon
+players = [
+#usr 1
+    init_pokemon(user_choice),
+    # pokemon cpu
+    init_pokemon(randint(1, 200))
+]
+
+print(players)
+```
+
+# FINAL RESULT
+```python
+import requests     # This module allows the program to make HTTP requests to access the Pokémon API (PokéAPI).
 import json         # Used to handle JSON data, which is the format the API returns.
-from random import choice, randint      # Pick random moves and Pokémon. choice picks a random item from a list, and randint generates a random integer within a range (attack stats).
+from random import choice, randint      # These functions from the random module are used to pick random moves and Pokémon. choice picks a random item from a list, and randint generates a random integer within a range.
 from time import sleep      # Pauses the program for a short period to make the game feel more natural.
 
-# Constants (in capitals to differentiate)
+# Constants
 LIFE = 100  # a constant that sets the initial health points (HP) for each Pokémon in the battle.
 
 # Get the list of Pokémon from the API
@@ -75,8 +249,8 @@ def init_pokemon(pokemon_id: str) -> dict:      # init_pokemon(): A function tha
 # Function to print the life status of both players
 def print_life():       # This function prints the current life of both Pokémon in the game, showing how much life each player has left.
     '''Prints the current life of each player'''
-    string = f"{players[0].get('name')} - {players[0].get('life')}/{LIFE} 🛡️\t"         # \t = tab.
-    string += f" 🛡️ {players[1].get('life')}/{LIFE} - {players[1].get('name')}\n"       # \n = new line.
+    string = f"{players[0].get('name')} - {players[0].get('life')}/{LIFE} 🛡️\t"
+    string += f" 🛡️ {players[1].get('life')}/{LIFE} - {players[1].get('name')}\n"
     print(string)
 
 
@@ -146,14 +320,14 @@ while not is_gameover:      # The main game loop continues until a player loses.
         players[defending_player]["life"] -= att_power
         print("\n")
         sleep(0.8)
+```
+
+## Comments explaining the code:
+* `LIFE constant`: This sets the initial life points for each Pokémon. 
+* `API request`: The program requests a list of Pokémon from the PokéAPI and prints them with their IDs. 
+* `init_pokemon()` function: This initialises a Pokémon by fetching its data from the API, formatting its height and weight, and assigning four random moves. 
+* `print_life()` function: Prints the current life of both players in each round. 
+* `Gameplay loop`: The main battle loop allows each player (user and CPU) to take turns attacking. The user selects an attack, while the CPU selects a random attack. The loop continues until one Pokémon's life reaches 0. 
+* `Winning condition`: If a player's attack reduces the opponent's life to 0 or below, the game declares a winner and ends.
 
 
-# Comments explaining the code:
-# LIFE constant: This sets the initial life points for each Pokémon.
-# API request: The program requests a list of Pokémon from the PokéAPI and prints them with their IDs.
-# init_pokemon() function: This initializes a Pokémon by fetching its data from the API, formatting its height and weight, and assigning four random moves.
-# print_life() function: Prints the current life of both players in each round.
-# Gameplay loop: The main battle loop allows each player (user and CPU) to take turns attacking. The user selects an attack, while the CPU selects a random attack. The loop continues until one Pokémon's life reaches 0.
-# Winning condition: If a player's attack reduces the opponent's life to 0 or below, the game declares a winner and ends.
-# This code meets the requirements for the project by using data from the PokéAPI, simulating a battle, and allowing players to attack in turns.
-#

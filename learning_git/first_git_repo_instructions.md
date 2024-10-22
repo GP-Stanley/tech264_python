@@ -79,7 +79,7 @@ This is my first repository.
 1. cd path/to/your/project 
 2. git init  (If it's a new project).
 3. `git remote add origin` https://github.com/your-username/your-repo.git  (Link to GitHub repo).
-4. `git add` myfile.txt (Add the specific file). 
+4. `git add` README.md (Add the specific file). 
 5. `git commit -m` "Add myfile.txt"
 6. `git push -u origin main`  (First push). 
 

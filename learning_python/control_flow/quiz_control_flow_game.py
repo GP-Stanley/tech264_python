@@ -11,8 +11,8 @@ questions = [           # A dictionary within a list.
 def play_quiz():
     score = 0       # Somewhere to store the score.
     print("Welcome to the quiz game!")
-    ready = input("Are you ready to play? (yes/no): ").lower()  # .lower() = making it lower case.
-    if ready != "yes":
+    ready = input("Are you ready to play? (y/n): ").lower()  # .lower() = making it lower case.
+    if ready != "y":
         return
 
     for q in questions:
@@ -21,7 +21,7 @@ def play_quiz():
             score += 1                                  # Score goes up, everytime it matches.
 
     print(f"Your final score is {score}/{len(questions)}")      # Score out of how many questions there are.
-    play_again = input("Do you want to play again? (yes/no): ").lower()
+    play_again = input("Do you want to play again? (y/n): ").lower()
     if play_again == "yes":
         play_quiz()
 

@@ -31,3 +31,10 @@ def fizzbuzz(n, fizz_num=3, buzz_num=5):            # customizable arguments.
 
 # Example usage
 fizzbuzz(100)
+
+
+# i % fizz_num == 0: This checks if the current value of i is divisible by fizz_num without leaving a remainder. The % operator is the modulus operator, which returns the remainder when i is divided by fizz_num. If i % fizz_num == 0, it means i is a multiple of fizz_num.
+# i % buzz_num == 0: Similarly, this checks if i is divisible by buzz_num without leaving a remainder. If this condition is True, it means i is a multiple of buzz_num.
+# and: This is a logical operator that checks if both conditions are True. The code inside the if block will only run if both i % fizz_num == 0 and i % buzz_num == 0 are True.
+# Overall meaning:
+# This line checks if i is divisible by both fizz_num and buzz_num. If it is, the code inside the if block will execute. This is often used to detect numbers that are multiples of both fizz_num and buzz_num (for example, in the FizzBuzz game, it's used to check for numbers like 15 that are multiples of both 3 and 5).

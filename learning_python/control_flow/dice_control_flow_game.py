@@ -11,7 +11,7 @@ def play_dice_game():           # Function to play the dice game.
     user_name = input("Enter your name: ")
 
     print("Welcome to the dice game!")
-    ready = input("Are you ready to play? (yes/no): ").lower()     # Keeps user answer lowercase.
+    ready = input("Are you ready to play? (y/n): ").lower()     # Keeps user answer lowercase.
     if ready != "yes":
         return
 
